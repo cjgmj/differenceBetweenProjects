@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "1f8f8703-d63c-48b9-b903-f7acedfe83ca",
+		"name": "Bookings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Obtener usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuarios paginados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/page?numPage=0&pageSize=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"page"
+							],
+							"query": [
+								{
+									"key": "numPage",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuario por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuarios filtrados por nombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/like/le",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"like",
+								"le"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuarios ordenados por nombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/order/name",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"order",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuarios menos de cierta edad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/minor/40",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"minor",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insertar usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"prueba\",\n\t\"surname\": \"prueba\",\n\t\"email\": \"prueba@yopmail.com\",\n\t\"birthdate\": \"1990-01-01T00:00:00\",\n\t\"age\": \"29\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 9,\n\t\"name\": \"prueba\",\n\t\"surname\": \"modificado\",\n\t\"email\": \"prueba@yopmail.com\",\n\t\"birthdate\": \"1990-01-01T00:00:00\",\n\t\"age\": \"29\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/users/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Salas",
+			"item": [
+				{
+					"name": "Obtener salas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Reservas",
+			"item": [
+				{
+					"name": "Reservar sala",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": {\n\t\t\"id\": 1\n\t},\n\t\"room\": {\n\t\t\"id\": 2\n\t},\n\t\"date\": \"2019-05-13T00:00:00\",\n\t\"reason\": \"Formación\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/bookings",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas por sala",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/bookings/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas entre dos fechas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/bookings/between?from=2019-04-13&to=2019-04-15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"between"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2019-04-13"
+								},
+								{
+									"key": "to",
+									"value": "2019-04-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas por usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/bookings/user?name=Veronica&surname=Ryan",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"user"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Veronica"
+								},
+								{
+									"key": "surname",
+									"value": "Ryan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas con motivo nulo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/bookings/reason-null",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"reason-null"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas después de cierta fecha",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/bookings/after/2019-04-23",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"after",
+								"2019-04-23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas aceptadas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/bookings/accepteds",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"accepteds"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
