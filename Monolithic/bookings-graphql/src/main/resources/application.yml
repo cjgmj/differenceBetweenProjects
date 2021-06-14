@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        # Formatea la forma en la que se muestran
+        # las consultas por consola
+        '[format_sql]': true
+    
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
