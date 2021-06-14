@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "9f211c07-eccd-485b-aaba-36015298db05",
+		"name": "Bookings - GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Obtener usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n    findAllUsers {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuarios paginados",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query(\r\n    $page: Int\r\n    $size: Int\r\n    ) {\r\n    findUsersPaginated(\r\n        page: $page\r\n        size: $size\r\n    ) {\r\n        content {\r\n            name\r\n            surname\r\n            birthdate\r\n        }\r\n        pageable {\r\n            page\r\n            size\r\n            sort {\r\n                orders {\r\n                    direction\r\n                    property\r\n                }\r\n            }\r\n        }\r\n        total\r\n    }\r\n}",
+								"variables": "{\r\n    \"page\": 0,\r\n    \"size\": 5\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuario por id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query($userId: Int!) {\r\n    findUserById(userId: $userId) {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
+								"variables": "{\r\n    \"userId\": 1\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuarios filtrados por nombre",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query($name: String!) {\r\n    findUsersFilteredByName(name: $name) {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
+								"variables": "{\r\n    \"name\": \"le\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuarios ordenados por nombre",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n    findUsersOrderedByName {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuarios menos de cierta edad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query($age: Int!) {\r\n    findUserFilteredByAge(age: $age) {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
+								"variables": "{\r\n    \"age\": 40\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insertar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation(\r\n        $name: String!\r\n        $surname: String!\r\n        $email: String!\r\n        $birthdate: LocalDate!\r\n        $age: Int!\r\n    ) {\r\n    addUser(userInput: {\r\n        name: $name\r\n        surname: $surname\r\n        email: $email\r\n        birthdate: $birthdate\r\n        age: $age\r\n    }) {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
+								"variables": "{\r\n\t\"name\": \"prueba\",\r\n\t\"surname\": \"prueba\",\r\n\t\"email\": \"prueba@yopmail.com\",\r\n\t\"birthdate\": \"1990-01-01\",\r\n\t\"age\": \"29\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation(\r\n        $userId: Int!\r\n        $name: String!\r\n        $surname: String!\r\n        $email: String!\r\n        $birthdate: LocalDate!\r\n        $age: Int!\r\n    ) {\r\n    updateUser(\r\n        userId: $userId,\r\n        userInput: {\r\n            name: $name\r\n            surname: $surname\r\n            email: $email\r\n            birthdate: $birthdate\r\n            age: $age\r\n        }\r\n    ) {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
+								"variables": "{\r\n\t\"userId\": 9,\r\n\t\"name\": \"prueba\",\r\n\t\"surname\": \"modificado\",\r\n\t\"email\": \"prueba@yopmail.com\",\r\n\t\"birthdate\": \"1990-01-01\",\r\n\t\"age\": \"29\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation($userId: Int!) {\r\n    deleteUser(userId: $userId) {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
+								"variables": "{\r\n\t\"userId\": 9\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Salas",
+			"item": [
+				{
+					"name": "Obtener salas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n    findAllRooms {\r\n        name\r\n        number\r\n        place\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservas",
+			"item": [
+				{
+					"name": "Reservar sala",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation(\r\n        $userId: Int!\r\n        $roomId: Int!\r\n        $date: LocalDateTime!\r\n        $reason: String!\r\n        $accepted: Boolean\r\n    ) {\r\n    bookingRoom(bookingInput: {\r\n        userId: $userId\r\n        roomId: $roomId\r\n        date: $date\r\n        reason: $reason\r\n        accepted: $accepted\r\n    }) {\r\n        user {\r\n            name\r\n            surname \r\n        }\r\n        room {\r\n            name\r\n            number\r\n        }\r\n        date\r\n        reason\r\n        accepted\r\n    }\r\n}",
+								"variables": "{\r\n    \"userId\": 1,\r\n    \"roomId\": 2,\r\n\t\"date\": \"2019-05-13T00:00:00\",\r\n\t\"reason\": \"Formación\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas por sala",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query($roomId: Int!) {\r\n    findBookingsByRoom(roomId: $roomId) {\r\n        user {\r\n            name\r\n            surname \r\n        }\r\n        room {\r\n            name\r\n            number\r\n        }\r\n        date\r\n        reason\r\n        accepted\r\n    }\r\n}",
+								"variables": "{\r\n    \"roomId\": 2\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas entre dos fechas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query(\r\n    $from: LocalDate!\r\n    $to: LocalDate!\r\n) {\r\n    findBookingsBetweenDates(\r\n        from: $from\r\n        to: $to\r\n    ) {\r\n        user {\r\n            name\r\n            surname \r\n        }\r\n        room {\r\n            name\r\n            number\r\n        }\r\n        date\r\n        reason\r\n        accepted\r\n    }\r\n}",
+								"variables": "{\r\n    \"from\": \"2019-04-13\",\r\n    \"to\": \"2019-04-15\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas por usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query(\r\n    $name: String!\r\n    $surname: String!\r\n) {\r\n    findBookingsByUser(\r\n        name: $name\r\n        surname: $surname\r\n    ) {\r\n        user {\r\n            name\r\n            surname \r\n        }\r\n        room {\r\n            name\r\n            number\r\n        }\r\n        date\r\n        reason\r\n        accepted\r\n    }\r\n}",
+								"variables": "{\r\n    \"name\": \"Veronica\",\r\n    \"surname\": \"Ryan\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas con motivo nulo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n    findBookingsByReasonNull {\r\n        user {\r\n            name\r\n            surname \r\n        }\r\n        room {\r\n            name\r\n            number\r\n        }\r\n        date\r\n        reason\r\n        accepted\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas después de cierta fecha",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query($date: LocalDate!) {\r\n    findBookingsAfterDate(date: $date) {\r\n        user {\r\n            name\r\n            surname \r\n        }\r\n        room {\r\n            name\r\n            number\r\n        }\r\n        date\r\n        reason\r\n        accepted\r\n    }\r\n}",
+								"variables": "{\r\n    \"date\": \"2019-04-23\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reservas aceptadas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n    findBookingsAccepted {\r\n        user {\r\n            name\r\n            surname \r\n        }\r\n        room {\r\n            name\r\n            number\r\n        }\r\n        date\r\n        reason\r\n        accepted\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/graphql",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

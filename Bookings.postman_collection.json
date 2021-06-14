@@ -215,8 +215,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Salas",
@@ -239,8 +238,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Reservas",
@@ -276,9 +274,6 @@
 				},
 				{
 					"name": "Obtener reservas por sala",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -289,10 +284,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
-						},
 						"url": {
 							"raw": "localhost:8080/bookings/2",
 							"host": [
@@ -309,9 +300,6 @@
 				},
 				{
 					"name": "Obtener reservas entre dos fechas",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -322,10 +310,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
-						},
 						"url": {
 							"raw": "localhost:8080/bookings/between?from=2019-04-13&to=2019-04-15",
 							"host": [
@@ -352,9 +336,6 @@
 				},
 				{
 					"name": "Obtener reservas por usuario",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -365,10 +346,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
-						},
 						"url": {
 							"raw": "localhost:8080/bookings/user?name=Veronica&surname=Ryan",
 							"host": [
@@ -395,9 +372,6 @@
 				},
 				{
 					"name": "Obtener reservas con motivo nulo",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -408,10 +382,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
-						},
 						"url": {
 							"raw": "localhost:8080/bookings/reason-null",
 							"host": [
@@ -428,9 +398,6 @@
 				},
 				{
 					"name": "Obtener reservas después de cierta fecha",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -441,10 +408,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
-						},
 						"url": {
 							"raw": "localhost:8080/bookings/after/2019-04-23",
 							"host": [
@@ -462,9 +425,6 @@
 				},
 				{
 					"name": "Obtener reservas aceptadas",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -475,10 +435,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\": {\n\t\t\"id\": 1\n\t},\n\t\"sala\": {\n\t\t\"id\": 2\n\t},\n\t\"fecha\": \"2019-05-13T00:00:00\",\n\t\"motivo\": \"Formación\"\n}"
-						},
 						"url": {
 							"raw": "localhost:8080/bookings/accepteds",
 							"host": [
@@ -493,9 +449,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
