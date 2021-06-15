@@ -167,7 +167,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "mutation(\r\n        $name: String!\r\n        $surname: String!\r\n        $email: String!\r\n        $birthdate: LocalDate!\r\n        $age: Int!\r\n    ) {\r\n    addUser(userInput: {\r\n        name: $name\r\n        surname: $surname\r\n        email: $email\r\n        birthdate: $birthdate\r\n        age: $age\r\n    }) {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
-								"variables": "{\r\n\t\"name\": \"prueba\",\r\n\t\"surname\": \"prueba\",\r\n\t\"email\": \"prueba@yopmail.com\",\r\n\t\"birthdate\": \"1990-01-01\",\r\n\t\"age\": \"29\"\r\n}"
+								"variables": "{\r\n\t\"name\": \"prueba\",\r\n\t\"surname\": \"prueba\",\r\n\t\"email\": \"prueba@yopmail.com\",\r\n\t\"birthdate\": \"1990-01-01\",\r\n\t\"age\": 29\r\n}"
 							}
 						},
 						"url": {
@@ -192,7 +192,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "mutation(\r\n        $userId: Int!\r\n        $name: String!\r\n        $surname: String!\r\n        $email: String!\r\n        $birthdate: LocalDate!\r\n        $age: Int!\r\n    ) {\r\n    updateUser(\r\n        userId: $userId,\r\n        userInput: {\r\n            name: $name\r\n            surname: $surname\r\n            email: $email\r\n            birthdate: $birthdate\r\n            age: $age\r\n        }\r\n    ) {\r\n        name\r\n        surname\r\n        birthdate\r\n    }\r\n}",
-								"variables": "{\r\n\t\"userId\": 9,\r\n\t\"name\": \"prueba\",\r\n\t\"surname\": \"modificado\",\r\n\t\"email\": \"prueba@yopmail.com\",\r\n\t\"birthdate\": \"1990-01-01\",\r\n\t\"age\": \"29\"\r\n}"
+								"variables": "{\r\n\t\"userId\": 9,\r\n\t\"name\": \"prueba\",\r\n\t\"surname\": \"modificado\",\r\n\t\"email\": \"prueba@yopmail.com\",\r\n\t\"birthdate\": \"1990-01-01\",\r\n\t\"age\": 29\r\n}"
 							}
 						},
 						"url": {
