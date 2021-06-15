@@ -12,7 +12,6 @@ const Booking = require('./models/booking');
 
 const app = express();
 
-// ¿Es necesario?
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
