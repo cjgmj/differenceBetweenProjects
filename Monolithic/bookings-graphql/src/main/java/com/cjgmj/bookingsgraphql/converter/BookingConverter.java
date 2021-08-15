@@ -18,8 +18,8 @@ public class BookingConverter {
 		final Booking booking = new Booking();
 
 		booking.setId(entity.getId());
-		booking.setUser(UserConverter.entityToUser(entity.getUser()));
-		booking.setRoom(RoomConverter.entityToRoom(entity.getRoom()));
+		booking.setUserId(entity.getUserId());
+		booking.setRoomId(entity.getRoomId());
 		booking.setDate(entity.getDate());
 		booking.setReason(entity.getReason());
 		booking.setAccepted(entity.getAccepted());
@@ -44,6 +44,8 @@ public class BookingConverter {
 
 		final BookingEntity entity = new BookingEntity();
 
+		entity.setUserId(input.getUserId());
+		entity.setRoomId(input.getRoomId());
 		entity.setDate(input.getDate());
 		entity.setReason(input.getReason());
 		entity.setAccepted(input.getAccepted());

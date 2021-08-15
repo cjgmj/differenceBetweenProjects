@@ -21,4 +21,9 @@ public class RoomServiceImpl implements IRoomService {
 		return RoomConverter.entitiesToRooms(this.roomRepository.findAll());
 	}
 
+	@Override
+	public Room getRoomById(Integer id) {
+		return RoomConverter.entityToRoom(this.roomRepository.findById(id).orElse(null));
+	}
+
 }

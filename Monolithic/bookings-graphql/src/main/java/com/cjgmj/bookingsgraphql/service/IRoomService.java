@@ -8,4 +8,6 @@ public interface IRoomService {
 
 	List<Room> getRooms();
 
+	Room getRoomById(Integer id);
+
 }

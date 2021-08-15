@@ -4,12 +4,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
@@ -23,14 +20,8 @@ public class BookingEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user")
-	private UserEntity user;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "room")
-	private RoomEntity room;
-
+	private Integer userId;
+	private Integer roomId;
 	private LocalDateTime date;
 	private String reason;
 	private Boolean accepted;
@@ -46,15 +37,13 @@ public class BookingEntity implements Serializable {
 	}
 
 	public BookingEntity() {
-		super();
 	}
 
-	public BookingEntity(Integer id, UserEntity user, RoomEntity room, LocalDateTime date, String reason,
+	public BookingEntity(Integer id, Integer userId, Integer roomId, LocalDateTime date, String reason,
 			Boolean accepted, LocalDateTime booking) {
-		super();
 		this.id = id;
-		this.user = user;
-		this.room = room;
+		this.userId = userId;
+		this.roomId = roomId;
 		this.date = date;
 		this.reason = reason;
 		this.accepted = accepted;
@@ -69,20 +58,20 @@ public class BookingEntity implements Serializable {
 		this.id = id;
 	}
 
-	public UserEntity getUser() {
-		return this.user;
+	public Integer getUserId() {
+		return this.userId;
 	}
 
-	public void setUser(UserEntity user) {
-		this.user = user;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
-	public RoomEntity getRoom() {
-		return this.room;
+	public Integer getRoomId() {
+		return this.roomId;
 	}
 
-	public void setRoom(RoomEntity room) {
-		this.room = room;
+	public void setRoomId(Integer roomId) {
+		this.roomId = roomId;
 	}
 
 	public LocalDateTime getDate() {

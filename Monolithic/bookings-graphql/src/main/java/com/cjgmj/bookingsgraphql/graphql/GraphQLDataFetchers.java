@@ -109,8 +109,24 @@ public class GraphQLDataFetchers {
 		};
 	}
 
+	public DataFetcher<User> getFindBookingUserDataFetcher() {
+		return dataFetchingEnvironment -> {
+			final Booking booking = dataFetchingEnvironment.getSource();
+
+			return this.userService.getUserById(booking.getUserId());
+		};
+	}
+
 	public DataFetcher<List<Room>> getFindAllRoomsDataFetcher() {
 		return dataFetchingEnvironment -> this.roomService.getRooms();
+	}
+
+	public DataFetcher<Room> getFindBookingRoomDataFetcher() {
+		return dataFetchingEnvironment -> {
+			final Booking booking = dataFetchingEnvironment.getSource();
+
+			return this.roomService.getRoomById(booking.getRoomId());
+		};
 	}
 
 	public DataFetcher<Booking> getBookingRoomDataFetcher() {

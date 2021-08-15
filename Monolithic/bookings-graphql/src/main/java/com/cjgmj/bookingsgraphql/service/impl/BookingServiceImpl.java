@@ -12,18 +12,10 @@ import com.cjgmj.bookingsgraphql.entity.BookingEntity;
 import com.cjgmj.bookingsgraphql.graphql.object.input.BookingInput;
 import com.cjgmj.bookingsgraphql.graphql.object.type.Booking;
 import com.cjgmj.bookingsgraphql.repository.BookingRepository;
-import com.cjgmj.bookingsgraphql.repository.RoomRepository;
-import com.cjgmj.bookingsgraphql.repository.UserRepository;
 import com.cjgmj.bookingsgraphql.service.IBookingService;
 
 @Service
 public class BookingServiceImpl implements IBookingService {
-
-	@Autowired
-	private UserRepository userRepository;
-
-	@Autowired
-	private RoomRepository roomRepository;
 
 	@Autowired
 	private BookingRepository bookingRepository;
@@ -31,9 +23,6 @@ public class BookingServiceImpl implements IBookingService {
 	@Override
 	public Booking bookingRoom(BookingInput booking) {
 		final BookingEntity entity = BookingConverter.inputToEntity(booking);
-
-		entity.setUser(this.userRepository.findById(booking.getUserId()).orElse(null));
-		entity.setRoom(this.roomRepository.findById(booking.getRoomId()).orElse(null));
 
 		return BookingConverter.entityToBooking(this.bookingRepository.save(entity));
 	}

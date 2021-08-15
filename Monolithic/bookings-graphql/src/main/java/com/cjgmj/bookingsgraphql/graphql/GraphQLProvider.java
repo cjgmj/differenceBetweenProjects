@@ -79,6 +79,10 @@ public class GraphQLProvider {
 						this.graphQLDataFetchers.getFindBookingsAfterDateDataFetcher()))
 				.type(TypeRuntimeWiring.newTypeWiring("Query").dataFetcher("findBookingsAccepted",
 						this.graphQLDataFetchers.getFindBookingsAcceptedDataFetcher()))
+				.type(TypeRuntimeWiring.newTypeWiring("Booking").dataFetcher("user",
+						this.graphQLDataFetchers.getFindBookingUserDataFetcher()))
+				.type(TypeRuntimeWiring.newTypeWiring("Booking").dataFetcher("room",
+						this.graphQLDataFetchers.getFindBookingRoomDataFetcher()))
 				.build();
 	}
 

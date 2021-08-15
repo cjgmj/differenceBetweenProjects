@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 public class Booking {
 
 	private Integer id;
-	private User user;
-	private Room room;
+	private Integer userId;
+	private Integer roomId;
 	private LocalDateTime date;
 	private String reason;
 	private Boolean accepted;
@@ -20,20 +20,20 @@ public class Booking {
 		this.id = id;
 	}
 
-	public User getUser() {
-		return this.user;
+	public Integer getUserId() {
+		return this.userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
-	public Room getRoom() {
-		return this.room;
+	public Integer getRoomId() {
+		return this.roomId;
 	}
 
-	public void setRoom(Room room) {
-		this.room = room;
+	public void setRoomId(Integer roomId) {
+		this.roomId = roomId;
 	}
 
 	public LocalDateTime getDate() {
